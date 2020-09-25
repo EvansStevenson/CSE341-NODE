@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <% include ../includes/header.ejs %>
 </head>
 
 <body>
   <% include ../includes/nav.ejs %>
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1><%= title %></h1>
-    <p>This is the placeholder for Team Activity 02</p>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+      <form method="POST" action="/ta02/addUser">
+        <input style="color: black" type="text" name="userName">
+        <button type="submit">Add User</button>
+      </form>
+    </div>
   </div>
-</div>
-<div class="container">
-  
-</div>
+  <div class="container">
+    <ol>
+      <% for (let user of userNames){ %>
+      <li><%= user %></li>
+      <% } %>
+    </ol>
+    <% if (duplicate){ %>
+      <p style="color: red;">User already exists!</p>
+    <% } %>
+
+    <form method='POST' action='/ta02/removeUser'>
+      <input style="color: black" type="text" name="removeName">
+      <button type="submit">remove User</button>
+    </form>
+    <% if (isNotFound){ %>
+      <p style="color: red;">UserName is not found!</p>
+    <% } %>
+
+  </div>
 
 
 </body>
+
 </html>

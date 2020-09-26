@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../../includes/header.ejs %>
+  <style>
+  #formContainer {
+      border-radius: 5px;
+      background-color: lightgray;
+      padding: 40px;
+      margin: auto;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+<div id="formContainer">
+  <label>Book Title:</label>
+  <p><%= BookName %></p>
+  <label>Book Author:</label>
+  <p><%= Author %></p>
+  <label>Book Summary:</label>
+  <p><%= Summary %></p>
+</div>
+</body>
+</html>

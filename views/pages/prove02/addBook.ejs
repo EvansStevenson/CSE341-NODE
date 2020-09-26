@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../../includes/header.ejs %>
+  <style>
+    #formContainer {
+      border-radius: 5px;
+      background-color: lightgray;
+      padding: 40px;
+      margin: auto;
+      width: 50%;
+    }
+
+    input[type=text], textarea{
+      width: 100%;
+      padding: 15px 10px;
+      margin: 8px 0;
+      display: table-cell;
+      vertical-align: center;
+      border: 2px solid black;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      margin: auto;
+      width: 30%;
+      background-color: white;
+      border: black;
+      border-style: solid;
+      border-radius: 10px;
+    }
+    
+    input[type=submit]:hover {
+      background-color: black;
+      color:white;
+    }
+    </style>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+<div id="formContainer">
+  <form method="POST" action="/prove02/addBook">
+    <h1>Add Book:</h1>
+    <label for="bn">Book Name</label>
+    <input type="text" name="bookName" id="bn" placeholder="Harry Potter">
+    <label for="an">Book Author</label>
+    <input type="text" name="authorName" id="an" placeholder="J. K. Rowling">
+    <label for="s">Book Summary</label><br>
+    <textarea id="summary rows="4" cols="50" placeholder="Describe Book here..." name="summary" id="s"></textarea>
+    <input type="submit">
+  </form>
+</div>
+
+</body>
+</html>

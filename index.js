@@ -24,7 +24,8 @@ const ta02Routes = require('./routes/ta02');
 const ta03Routes = require('./routes/ta03'); 
 const ta04Routes = require('./routes/ta04');
 //prove activitis 
-const pr01Routes = require('./routes/prove01')
+const pr01Routes = require('./routes/prove01');
+const pr02Routes = require('./routes/prove02');
 
 app.use(express.static(path.join(__dirname, 'public')))
    .set('views', path.join(__dirname, 'views'))
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use('/ta01', ta01Routes)
    .use('/prove01', pr01Routes)
    .use('/ta02', ta02Routes) 
+   .use('/prove02', pr02Routes)
    .use('/ta03', ta03Routes) 
    .use('/ta04', ta04Routes)
    .get('/', (req, res, next) => {

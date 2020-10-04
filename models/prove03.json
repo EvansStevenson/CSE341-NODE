@@ -1,0 +1,32 @@
+[
+    {
+        "url": "https://m.media-amazon.com/images/I/812rdzHjvoL._AC_UY218_.jpg",
+        "price": 379,
+        "name": "GTX 1070"
+    },
+    { 
+        "url": "https://m.media-amazon.com/images/I/61pE8kBYykL._AC_UY218_.jpg",
+        "price": 599,
+        "name": "GTX 1080"
+    },
+    {
+        "url": "https://m.media-amazon.com/images/I/61aejZmcT1L._AC_UY218_.jpg",
+        "price": 499,
+        "name": "RTX 2070"
+    },
+    {
+        "url": "https://m.media-amazon.com/images/I/61EyqvcmZKL._AC_UY218_.jpg",
+        "price": 699,
+        "name": "RTX 2080"
+    },
+    {
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7jLm_cbLV__cU3JZlCMyaCpU8y7Tn02hfdA&usqp=CAU",
+        "price": 699,
+        "name": "RTX 3080"
+    },
+    {
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7jLm_cbLV__cU3JZlCMyaCpU8y7Tn02hfdA&usqp=CAU",
+        "price": 1499,
+        "name": "RTX 3090"
+    }
+]

@@ -1,12 +1,4 @@
-const express = require('express');
-const fs = require('fs'); // File system for TA01
-const router = express.Router();
-// Remember Team Activity 01? 
-// This is the same solution, but implemented in our app using 
-// proper routing for the view engine
-
-const activities = ['soccer', "basketball", "football", "swimming"];
-router.get('/', (req, res, next) => {
+exports.getTa01 = (req, res, next) => {
     // Request handling
     // CORE CHALLENGE 1 -
     // HTML page is written
@@ -24,10 +16,9 @@ router.get('/', (req, res, next) => {
     res.write('</body>');
     res.write('</html>');
     return res.end(); // Return so you don't execute remaining code outside of if statement
-});
+}
 
-// CORE CHALLENGE 2 -
-router.get('/activities', (req, res, next) => {
+exports.getCoreChallenge2 = (req, res, next) => {
     res.write('<html>');
     res.write('<body>');
     res.write('<ul>');
@@ -45,10 +36,9 @@ router.get('/activities', (req, res, next) => {
     res.write('</body>');
     res.write('</html>');
     return res.end(); // Return so you don't execute remaining code outside of if statement
-});
+}
 
-// CORE CHALLENGE 3 -
-router.post('/add-activity', (req, res, next) => {
+exports.getCoreChallenge3 = (req, res, next) => {
     const body = [];
     req.on('data', (chunk) => {
         body.push(chunk);
@@ -64,14 +54,9 @@ router.post('/add-activity', (req, res, next) => {
         res.writeHead(302, {'Location': 'activities'});
         res.end();
     });
-});
+}
 
-/***************************************************************************
-* STRETCH CHALLENGE SOLUTIONS
-* These are the solutions for the stretch challenges.
-***************************************************************************/
-// STRETCH CHALLENGE 1 - Add CSS.
-router.get("/stretch-1", (req, res, next) => {
+exports.getSC1 = (req, res, next) => {
     // This will be fairly similar to any HTML page, but have internal CSS
     // This is not the only way to do it. In fact, you can link external CSS
     // with some more work. (hint: look up serving static pages, or Express,
@@ -90,10 +75,9 @@ router.get("/stretch-1", (req, res, next) => {
     res.write('</html>');
 
     return res.end();
-});
+}
 
-// STRETCH CHALLENGE 2 - Write to file.
-router.get("/stretch-2", (req, res, next) => {
+exports.getSC2 = (req, res, next) => {
     // You will either need to name your post request differently, or
     // determine whether it is a POST request or not with another bool operator.
     // No post request, just write the form page...
@@ -108,9 +92,9 @@ router.get("/stretch-2", (req, res, next) => {
     res.write('</body>');
     res.write('</html>');
     return res.end(); // Remember to end the response!
-});
-// The url can be identical.
-router.post("/stretch-2", (req, res, next) => {
+}
+
+exports.postSC2 = (req, res, next) => {
     console.log('Post request!');
     const body = [];
     req.on('data', (chunk) => {
@@ -126,10 +110,9 @@ router.post("/stretch-2", (req, res, next) => {
             return res.end();
         });
     });
-});
+}
 
-// STRETCH CHALLENGE 3 - Add two numbers...
-router.get("/stretch-3", (req, res, next) => {
+exports.getSC3 = (req, res, next) => {
     // Same routine from stretch-2 on the POST requests...
     res.write('<html>');
     res.write('<body>');
@@ -143,8 +126,9 @@ router.get("/stretch-3", (req, res, next) => {
     res.write('</body>');
     res.write('</html>');
     return res.end(); // Remember to end the response!
-});
-router.post("/stretch-3", (req, res, next) => {
+}
+
+exports.postSC3 = (req, res, next) => {
     console.log('Post request!');
     const body = [];
     req.on('data', (chunk) => {
@@ -169,5 +153,4 @@ router.post("/stretch-3", (req, res, next) => {
         res.writeHead(302, {'Location': '/'}); // Redirect to home
         return res.end();
     });
-});
-module.exports = router;
+}

@@ -10,7 +10,7 @@
   <div class="jumbotron text-center">
     <div class="container">
       <h1><%= title %></h1>
-      <form method="POST" action="/ta02/addUser">
+      <form method="POST" action="/ta/ta02/addUser">
         <input style="color: black" type="text" name="userName">
         <button type="submit">Add User</button>
       </form>
@@ -26,7 +26,7 @@
       <p style="color: red;">User already exists!</p>
     <% } %>
 
-    <form method='POST' action='/ta02/removeUser'>
+    <form method='POST' action='/ta/ta02/removeUser'>
       <input style="color: black" type="text" name="removeName">
       <button type="submit">remove User</button>
     </form>

@@ -1,14 +1,11 @@
-const express = require('express');
-const router = express.Router();
-
-router.get('/',(req, res, next) => {
+exports.getProve02 = (req, res, next) => {
     res.render('pages/prove02/addBook', { 
         title: 'Prove02', 
         path: '/prove02',
     });
-});
+}
 
-router.post('/addBook', (req, res, next) => {
+exports.postProve02 =(req, res, next) => {
     //console.log(req.body.bookName)
     res.render('pages/prove02/display', {
         title: 'addBook',
@@ -16,8 +13,5 @@ router.post('/addBook', (req, res, next) => {
         BookName: req.body.bookName,
         Author: req.body.authorName,
         Summary: req.body.summary
-
     });
-});
-
-module.exports = router;
+}

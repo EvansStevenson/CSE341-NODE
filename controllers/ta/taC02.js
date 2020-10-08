@@ -1,6 +1,5 @@
-//here
+
 const userNames = [];
-//const { post } = require("request");
 
 exports.getTa02 = (req, res, next) => {
     res.render('../views/pages/ta02', {

@@ -7,6 +7,28 @@ const app = express();
 
 const routes = require('./routes') //note: express auto adds index.js
 const errorController = require('./controllers/404');
+const mongooseConnect = require(Mongoose);
+
+
+const cors = require('cors'); // Place this with other requires (like 'path' and 'express')
+const { Mongoose } = require('mongoose');
+const corsOptions = {
+    origin: "https://cse341-node.herokuapp.com/",
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    family: 4
+};
+
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://<username>:<username>@cse341cluster-3dwlw.mongodb.net/test?retryWrites=true&w=majority";
+                        
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -15,4 +37,18 @@ app.use(bodyParser({extended: false})); // For parsing the body of a POST
 //app.get('/', routes);
 app.use('/', routes);
 app.use(errorController.get404);
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+mongooseConnect.connect("mongodb+srv://masterlink0:qwezxc77510@cse341shop.mud7h.mongodb.net/shop?retryWrites=true&w=majority", options);
+mon.then(result => {
+     // This should be your user handling code implement following the course videos
+     app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+
+
+
+
+//mongodb+srv://masterlink0:qwezxc77510@cse341shop.mud7h.mongodb.net/shop?retryWrites=true&w=majority

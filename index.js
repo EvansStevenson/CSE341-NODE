@@ -16,6 +16,7 @@ const corsOptions = {
     origin: "https://cse341-node.herokuapp.com/",
     optionsSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
 
 const options = {
@@ -26,7 +27,7 @@ const options = {
     family: 4
 };
 
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://<username>:<username>@cse341cluster-3dwlw.mongodb.net/test?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://masterlink0:thisisevanspassword@cse341shop.mud7h.mongodb.net/<dbname>?retryWrites=true&w=majority";
                         
 
 
@@ -38,8 +39,8 @@ app.use(bodyParser({extended: false})); // For parsing the body of a POST
 app.use('/', routes);
 app.use(errorController.get404);
 
-mongooseConnect.connect("mongodb+srv://masterlink0:qwezxc77510@cse341shop.mud7h.mongodb.net/shop?retryWrites=true&w=majority", options);
-mon.then(result => {
+mongooseConnect.connect("mongodb+srv://masterlink0:thisisevanspassword@cse341shop.mud7h.mongodb.net/shop?retryWrites=true&w=majority", options);
+mongooseConnect.then(result => {
      // This should be your user handling code implement following the course videos
      app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
   })
@@ -51,4 +52,3 @@ mon.then(result => {
 
 
 
-//mongodb+srv://masterlink0:qwezxc77510@cse341shop.mud7h.mongodb.net/shop?retryWrites=true&w=majority

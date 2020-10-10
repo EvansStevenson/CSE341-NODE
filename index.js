@@ -7,8 +7,9 @@ const app = express();
 
 const routes = require('./routes') //note: express auto adds index.js
 const errorController = require('./controllers/404');
-const { Mongoose } = require('mongoose');
-const mongooseConnect = require(Mongoose);
+
+const { mongoose } = require('mongoose');
+const mongooseConnect = require(mongoose);
 
 
 const cors = require('cors'); // Place this with other requires (like 'path' and 'express')

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+  <h1>Products</h1>
+
+  
+    <h2><a href="./admin" style="border: black solid;">Add Product</a></h2>
+ 
+
+  <% prods.forEach (prods => { %>
+    <div class="row">
+        <div class="col-m">
+          <div class="jumbotron jumbotron-fluid itemContainer">
+            <div class="container">
+              <h1 class="display-4"><%= prods.title %></h1>
+              <img src="<%= prods.imgUrl %>" style='max-width: 150px'>
+              <p>$<%= prods.price %></p>
+              <p>Description: <%= prods.description %></p>
+              <h3><a href="../shop/productEdit/<%= prods._id %>" style="border: black solid; color: black;">Edit</a></h3>
+              <h3><a href="../shop/cart/<%= prods._id %>" style="border: black solid; color: black;">Add To Cart</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+ <% }) %>
+</body>
+</html>
+

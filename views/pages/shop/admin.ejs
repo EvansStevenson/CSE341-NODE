@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+  <h1>Add Product</h1>
+  <form action="/shop/admin/submit" method="POST">
+      <input type="text" placeholder="Title" name="title">
+      <input type="text" placeholder="Discription" name="description">
+      <input type="text" step="0.01" placeholder="pirce" name="price">
+      <input type="text" placeholder="imgUrl" name="imgUrl">
+      <input type="submit">
+  </form>
+</body>
+</html>
+

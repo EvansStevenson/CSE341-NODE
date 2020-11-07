@@ -5,22 +5,28 @@
 </head>
 
 <body>
-  <% include ../../includes/nav.ejs %>
   <h1>Cart</h1>
-  <div class="row">
-    <div class="col-m">
-      <div class="jumbotron jumbotron-fluid itemContainer">
-        <div class="container">
-          <h1 class="display-4"><%= itemT %></h1>
-          <img src="<%= itemI %>" style='max-width: 150px'>
-          <p>$<%= itemP %></p>
-          <p>Description: <%= itemD %></p>
+  <% include ../../includes/nav.ejs %>
+  <% cartItems.forEach (cartItems => { %>
+    <div class="row">
+        <div class="col-m">
+          <div class="jumbotron jumbotron-fluid itemContainer">
+            <div class="container">
+              <h1 class="display-4"><%= cartItems.productId.title %></h1>
+              <img src="<%= cartItems.productId.imgUrl %>" style='max-width: 150px'>
+              <p>$<%= cartItems.productId.price %></p>
+              <p>Description: <%= cartItems.productId.description %></p>
+              <p>Quantity: <%= cartItems.quantity %></p>
+              <form action="/shop/cart/removeCart" method="POST">
+                <input type="text" name="itemId" value="<%= cartItems.productId._id%>" hidden>
+                <button type="submit" style="border: black solid; color: black;">Remove From Cart</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  </div>
+      </div>
+ <% }) %>
 </body>
 </html>
-
 

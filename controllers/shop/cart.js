@@ -1,28 +1,35 @@
+const { populate } = require('../../models/product');
 const Product = require('../../models/product');
 
 exports.getCart = (req, res, next) => {
-    let id = req.params.id;
-    let title = "";
-    let price = 0;
-    let description = "";
-    let imgUrl = "";
-    Product.findById(id).then(product => {
-        title = product.title;
-        price = product.price;
-        description = product.description;
-        imgUrl = product.imgUrl;
+    const prodId = req.params.id;
+    Product.findById(prodId)
+    .then(product =>{
+        //console.log(product);
+        return req.user.addToCart(product);
     })
-        .then(result => {
-            //console.log(title + price + description + imgUrl + id)
+    .then(result => {
+        //console.log("no error" + result);
+        req.user.populate('cart.items.productId')
+        .execPopulate()
+        .then(user => {
+            console.log("is this going to work: " + user.cart.items);
             res.render('pages/shop/cart', {
-                pageTitle: 'Cart',
-                path: '/cart',
-                itemT: title,
-                itemP: price,
-                itemD: description,
-                itemI: imgUrl,
-                ID: id
+               cartItems: user.cart.items,
+               path: '/admin'
             });
         })
-        .catch(err => console.log(err));
-}
+        
+    })
+    .catch(err => {
+        console.log(err);
+    })
+};
+
+exports.postCartDelete = (req, res, next) => {
+    const productId = req.body.itemId;
+    console.log("wait this worked= " + productId);
+    req.user   
+        .removeFromCart(productId)
+    res.redirect('pages/shop/cart')
+};

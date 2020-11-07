@@ -1,6 +1,7 @@
 const Product = require('../../models/product');
 
 exports.getAddProduct = (req, res, next) => {
+  console.log(req.user);
     res.render('pages/shop/admin', {
       pageTitle: 'Add Product',
       path: '/admin',
@@ -12,10 +13,10 @@ exports.postAddProduct =(req, res, next) => {
   const description = req.body.description;
   const price = req.body.price;
   const imgUrl = req.body.imgUrl;
-  const product = new Product({title: title, description: description, price: price, imgUrl: imgUrl});
+  const product = new Product({title: title, description: description, price: price, imgUrl: imgUrl, userId: req.user._id});
   product.save()
     .then(result => {
-      console.log("created Product");
+      console.log("created Product" + req.user._id);
       res.redirect("/shop/products");
     })
     .catch(err => {console.log(err);

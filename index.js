@@ -7,9 +7,8 @@ const app = express();
 
 const routes = require('./routes') //note: express auto adds index.js
 const errorController = require('./controllers/404');
-
 const mongoose = require('mongoose'); //this changed
-
+const User = require('./models/user');
 
 
 const cors = require('cors'); // Place this with other requires (like 'path' and 'express')
@@ -31,7 +30,14 @@ const options = {
 
 const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://masterlink0:thisisevanspassword@cse341shop.mud7h.mongodb.net/shop?retryWrites=true&w=majority";
 
-
+app.use((req, res, next) => {
+  User.findById('5f87496ce44dd835ccf4248e')
+  .then (user => {
+    req.user = user;
+    next();
+  })
+  .catch(err => console.log(err));
+})
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -44,7 +50,18 @@ app.use(errorController.get404);
 mongoose
   .connect(MONGODB_URL, options)
   .then(result => {
-    // This should be your user handling code implement following the course videos
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'Evans',
+          email: 'evanstevenson860@gmail.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    })
     app.listen(PORT, () => console.log(`Listening on ${PORT}`));
   })
   .catch(err => {

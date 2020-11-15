@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <% include ../../includes/header.ejs %>
+</head>
+<body>
+    <% include ../../includes/nav.ejs %>
+    <h1>Prove 09</h1>
+    <% pokemon.forEach(item => { %>
+        <div class="row">
+          <div class="col-m">
+            <div class="jumbotron jumbotron-fluid itemContainer">
+              <div class="container">
+                <h1 class="display-4"><%= item.name %></h1>
+                <img src="<%= item.img %>" style='max-width: 150px' alt="<%= item.name %>">
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <% }) %>
+        <section>
+            <a href="/proves/prove09/?page=<%= previous %>">Previous</a>
+            <% for(var i=1; i < pokemon.length; i++) { %>
+              <a href="/proves/prove09/?page=<%= i %>"><%= i %></a>
+           <% } %>
+           <a href="/proves/prove09/?page=<%= next %>">Next</a>
+          </section>
+</body>
+</html>

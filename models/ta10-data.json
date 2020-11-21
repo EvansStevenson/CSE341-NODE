@@ -1,0 +1,28 @@
+{
+    "avengers": [
+        {
+            "name": "Tony Stark",
+            "gender": "boy"
+        },
+        {
+            "name": "Steve Rogers",
+            "gender": "boy"
+        },
+        {
+            "name": "Thor Odinson",
+            "gender": "boy"
+        },
+        {
+            "name": "Bruce Banner",
+            "gender": "boy"
+        },
+        {
+            "name": "Natasha Romanova",
+            "gender": "girl"
+        },
+        {
+            "name": "Clint Barton",
+            "gender": "boy"
+        }
+    ]
+}

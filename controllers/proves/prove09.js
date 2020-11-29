@@ -1,11 +1,11 @@
-const fetch = require("node-fetch");
+//const fetch = require("node-fetch");
 exports.getProve08 = (req, res, next) => {
   let page = req.query.page;
   let pokeArray = [];
   let fivePokemon = [];
   const reqest = async () => {
     for (let i = 1; i <= 40; i++){
-      let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      //let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       let json = await response.json();
       let pokemon = { name: json.name, img: json.sprites.front_default }
       fivePokemon.push(pokemon);
